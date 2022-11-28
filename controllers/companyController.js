@@ -1,4 +1,3 @@
-const { request } = require('express')
 const Company = require('../models/company')
 
 //Create and Save a new company
@@ -32,7 +31,7 @@ exports.create = (req, res) => {
 }
 
 // Get all companies
-exports.findAll = (req, req) => {
+exports.findAll = (res) => {
     Company.findAll()
         .then(data => {
             res.send(data);
@@ -52,9 +51,9 @@ exports.delete = (req, res) => {
         return
     }
 
-    Certificate.destroy({
+    Company.destroy({
         where: {
-            id: req.body.company_id
+            company_id: req.body.company_id
         }
     })
         .then(res.status(200).send({
@@ -67,7 +66,7 @@ exports.delete = (req, res) => {
         })
 }
 
-//Update a certificate
+//Update a company
 exports.update = (req, res) => {
     Company.upsert({
         company_id: req.body.company_id,

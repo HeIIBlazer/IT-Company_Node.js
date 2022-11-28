@@ -35,7 +35,7 @@ exports.create = (req, res) => {
 }
 
 //Get all workers
-exports.findAll = (req, res) => {
+exports.findAll = (res) => {
     Worker.findAll()
         .then(data => {
             res.send(data)
