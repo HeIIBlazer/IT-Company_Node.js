@@ -3,7 +3,7 @@ const Worker = require('../models/worker')
 //Create and Save a new worker 
 exports.create = (req, res) => {
     //Validate request
-    if (!req.body.full_name || req.body.dateOfBirth || req.body.city || req.body.address || req.body.phone || req.body.email || req.body.dateJoined || req.body.companyID || req.body.positionID) {
+    if (!req.body.full_name || !req.body.dateOfBirth || !req.body.city || !req.body.address || !req.body.phone || !req.body.dateJoined || !req.body.companyID || !req.body.positionID) {
         res.status(400).send({
             message: 'Content can not be empty!'
         })
