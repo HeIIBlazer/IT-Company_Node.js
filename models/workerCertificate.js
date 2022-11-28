@@ -28,7 +28,7 @@ WorkerCertificate.init({
         },
     },
     dateOfReceipt: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: false
     },
 
