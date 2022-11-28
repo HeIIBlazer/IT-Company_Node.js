@@ -1,7 +1,7 @@
 const db = require('../config/database')
 const { DataTypes, Model } = require('sequelize')
 
-class Certificate extends Model {}
+class Certificate extends Model { }
 Certificate.init({
     certificate_id: {
         type: DataTypes.INTEGER,
@@ -17,10 +17,10 @@ Certificate.init({
         allowNull: false
     }
 },
-{
-    sequelize: db,
-    modelName: 'certificate',
-    timestamp: true
-})
+    {
+        sequelize: db,
+        modelName: 'Certificate',
+        timestamp: true
+    })
 
 module.exports = Certificate

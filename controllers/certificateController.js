@@ -28,7 +28,7 @@ exports.create = (req, res) => {
 }
 
 // Get all certificates
-exports.findAll = (res) => {
+exports.findAll = (req, res) => {
     Certificate.findAll()
         .then(data => {
             res.send(data);

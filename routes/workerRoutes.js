@@ -3,12 +3,14 @@ module.exports = app => {
     const router = require('express').Router()
 
     //Get all Workers
-    router.get('/allWorkers', worker.findAll)
+    router.get('/all', worker.findAll)
     //Create new Worker
-    router.post('/createWorker', worker.create)
+    router.post('/create', worker.create)
     //Delete Worker
-    router.delete('/deleteWorker', worker.delete)
+    router.delete('/delete', worker.delete)
     //Update Worker
-    router.put('/updateWorker', worker.update)
+    router.put('/update', worker.update)
+
+    app.use('/api/worker', router)
 
 }

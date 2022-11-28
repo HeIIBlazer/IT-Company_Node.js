@@ -3,7 +3,7 @@ const Company = require('../models/company')
 //Create and Save a new company
 exports.create = (req, res) => {
     //Validate request
-    if (!req.body.name || !req.body.city || !req.body.city || !req.body.address || !req.body.phone || !req.body.email) {
+    if (!req.body.name || !req.body.city || !req.body.address || !req.body.phone || !req.body.email) {
         res.status(400).send({
             message: 'Content can not be empty'
         })
@@ -31,7 +31,7 @@ exports.create = (req, res) => {
 }
 
 // Get all companies
-exports.findAll = (res) => {
+exports.findAll = (req, res) => {
     Company.findAll()
         .then(data => {
             res.send(data);

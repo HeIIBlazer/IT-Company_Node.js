@@ -28,7 +28,7 @@ exports.create = (req, res) => {
 }
 
 // Get all positions
-exports.findAll = (res) => {
+exports.findAll = (req, res) => {
     Position.findAll()
         .then(data => {
             res.send(data);

@@ -3,7 +3,7 @@ const Worker = require('../models/worker')
 //Create and Save a new worker 
 exports.create = (req, res) => {
     //Validate request
-    if (!req.body.full_name || !req.body.dateOfBirth || !req.body.city || !req.body.address || !req.body.phone || !req.body.dateJoined || !req.body.companyID || !req.body.positionID) {
+    if (!req.body.full_name || !req.body.dateOfBirth || !req.body.city || !req.body.address || !req.body.phone || !req.body.email || !req.body.dateJoined || !req.body.companyID || !req.body.positionID) {
         res.status(400).send({
             message: 'Content can not be empty!'
         })
@@ -13,14 +13,14 @@ exports.create = (req, res) => {
     //Create a worker
     const worker = {
         full_name: req.body.full_name,
-        date_of_birth: req.body.dateOfBirth,
+        dateOfBirth: req.body.dateOfBirth,
         city: req.body.city,
         address: req.body.address,
         phone: req.body.phone,
         email: req.body.email,
-        date_joined: req.body.dateJoined,
-        company_id: req.body.companyID,
-        position_id: req.body.positionID
+        dateJoined: req.body.dateJoined,
+        companyID: req.body.companyID,
+        positionID: req.body.positionID
     }
 
     //Save a worker
@@ -35,7 +35,7 @@ exports.create = (req, res) => {
 }
 
 //Get all workers
-exports.findAll = (res) => {
+exports.findAll = (req, res) => {
     Worker.findAll()
         .then(data => {
             res.send(data)

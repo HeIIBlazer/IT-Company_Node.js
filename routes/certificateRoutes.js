@@ -3,12 +3,14 @@ module.exports = app => {
     const router = require('express').Router()
 
     //Get all s
-    router.get('/allCertificates', certificate.findAll)
+    router.get('/all', certificate.findAll)
     //Create new Certificate
-    router.post('/createCertificate', certificate.create)
+    router.post('/create', certificate.create)
     //Delete Certificate
-    router.delete('/deleteCertificate', certificate.delete)
+    router.delete('/delete', certificate.delete)
     //Update Certificate
-    router.put('/updateCertificate', certificate.update)
+    router.put('/update', certificate.update)
+
+    app.use('/api/certificate', router)
 
 }

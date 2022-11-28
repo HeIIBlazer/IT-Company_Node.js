@@ -3,7 +3,7 @@ const { DataTypes, Model, Sequelize } = require('sequelize')
 const Company = require('./company')
 const Position = require('./position')
 
-class Worker extends Model {}
+class Worker extends Model { }
 Worker.init({
     worker_id: {
         type: DataTypes.INTEGER,
@@ -60,14 +60,14 @@ Worker.init({
     }
 
 },
-{
-    sequelize: db,
-    modelName: 'worker',
-    timestamp: true,
-    indexes: [{
-        unique: true,
-        fields: ["companyID", "positionID"]
-    }]
-})
+    {
+        sequelize: db,
+        modelName: 'Worker',
+        timestamp: true,
+        indexes: [{
+            unique: true,
+            fields: ["companyID", "positionID"]
+        }]
+    })
 
 module.exports = Worker

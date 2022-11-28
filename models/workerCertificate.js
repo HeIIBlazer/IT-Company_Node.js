@@ -3,8 +3,8 @@ const { DataTypes, Model } = require('sequelize')
 const Worker = require('./worker')
 const Certificate = require('./certificate')
 
-class WorkerCertificate extends Model {}
-WorkerCertificate.init({
+class workerCertificate extends Model { }
+workerCertificate.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -33,14 +33,14 @@ WorkerCertificate.init({
     },
 
 },
-{
-    sequelize: db,
-    modelName: 'workcert',
-    timestamp: false,
-    indexes: [{
-        unique: true,
-        fields: ["workerId", "certificateId"]
-    }]
-})
+    {
+        sequelize: db,
+        modelName: 'workcert',
+        timestamp: false,
+        indexes: [{
+            unique: true,
+            fields: ['workerId', 'certificateId']
+        }]
+    })
 
-module.exports = WorkerCertificate
+module.exports = workerCertificate

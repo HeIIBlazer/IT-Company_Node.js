@@ -3,12 +3,14 @@ module.exports = app => {
     const router = require('express').Router()
 
     //Get all Companies
-    router.get('/allCompanies', company.findAll)
+    router.get('/all', company.findAll)
     //Create new Company
-    router.post('/createCompany', company.create)
+    router.post('/create', company.create)
     //Delete Company
-    router.delete('/deleteCompany', company.delete)
+    router.delete('/delete', company.delete)
     //Update Company
-    router.put('/updateCompany', company.update)
+    router.put('/update', company.update)
+
+    app.use('/api/company', router)
 
 }

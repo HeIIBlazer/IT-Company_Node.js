@@ -6,7 +6,8 @@ let Position = require('./models/position')
 let Worker = require('./models/worker')
 let WorkerCertificate = require('./models/workerCertificate')
 
-Certificate.belongsTo(Worker, { through: WorkerCertificate, as: "workers" });
+Certificate.belongsToMany(Worker, { through: WorkerCertificate });
+Worker.belongsToMany(Certificate, { through: WorkerCertificate});
 
 Worker.hasOne(Company, { through: Worker });
 Worker.hasOne(Position, { through: Worker });
@@ -17,6 +18,6 @@ Worker.hasOne(Position, { through: Worker });
 // Worker.sync({force: true});
 // WorkerCertificate.sync({force: true});
 
-db.sync({force: true});
+db.sync({ force: true });
 
 

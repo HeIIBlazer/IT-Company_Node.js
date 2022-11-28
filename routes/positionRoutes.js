@@ -3,12 +3,14 @@ module.exports = app => {
     const router = require('express').Router()
 
     //Get all Positions
-    router.get('/allPositions', position.findAll)
+    router.get('/all', position.findAll)
     //Create new Position
-    router.post('/createPosition', position.create)
+    router.post('/create', position.create)
     //Delete Position
-    router.delete('/deletePosition', position.delete)
+    router.delete('/delete', position.delete)
     //Update Position
-    router.put('/updatePosition', position.update)
+    router.put('/update', position.update)
+
+    app.use('/api/position', router)
 
 }

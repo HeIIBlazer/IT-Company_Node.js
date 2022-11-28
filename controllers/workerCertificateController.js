@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 }
 
 // Get all connections between Worker and Certificate
-exports.findAll = (res) => {
+exports.findAll = (req, res) => {
     Position.findAll()
         .then(data => {
             res.send(data);
