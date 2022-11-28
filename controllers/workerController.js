@@ -73,6 +73,7 @@ exports.delete = (req, res) => {
 //Update a worker
 exports.update = (req, res) => {
     Worker.upsert({
+        worker_id: req.body.worker_id,
         full_name: req.body.full_name,
         dateOfBirth: req.body.dateOfBirth,
         city: req.body.city,
