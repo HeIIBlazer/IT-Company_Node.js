@@ -6,11 +6,15 @@ let Position = require('./models/position')
 let Worker = require('./models/worker')
 let WorkerCertificate = require('./models/workerCertificate')
 
-Certificate.belongsToMany(Worker, { through: WorkerCertificate });
-Worker.belongsToMany(Certificate, { through: WorkerCertificate});
+//Create connection between Worker and Certificate
+Worker.belongsToMany(Certificate, { through: WorkerCertificate })
+Certificate.belongsToMany(Worker, { through: WorkerCertificate })
 
-Worker.hasOne(Company, { through: Worker });
-Worker.hasOne(Position, { through: Worker });
+//Create connection between Worker and Company 
+Worker.hasOne(Company, { foreignKey: 'company_id', sourceKey: 'companyID' })
+
+//Create connection between Worker and Position
+Worker.hasOne(Position, { foreignKey: 'position_id', sourceKey: 'positionID' })
 
 // Certificate.sync({force: true});
 // Company.sync({force: true});
@@ -18,6 +22,5 @@ Worker.hasOne(Position, { through: Worker });
 // Worker.sync({force: true});
 // WorkerCertificate.sync({force: true});
 
-db.sync({ force: true });
 
-
+db.sync({ alter: true });

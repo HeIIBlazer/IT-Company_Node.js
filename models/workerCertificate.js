@@ -36,11 +36,13 @@ workerCertificate.init({
     {
         sequelize: db,
         modelName: 'workcert',
-        timestamp: false,
-        indexes: [{
-            unique: true,
-            fields: ['workerId', 'certificateId']
-        }]
+        timestamp: true,
+        indexes: [
+            {
+                unique: true,
+                fields: ["workerId", "certificateId"]
+            }
+        ]
     })
 
 module.exports = workerCertificate

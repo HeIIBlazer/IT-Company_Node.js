@@ -1,7 +1,7 @@
 const db = require('../config/database')
 const { DataTypes, Model } = require('sequelize')
 
-class Position extends Model {}
+class Position extends Model { }
 Position.init({
     position_id: {
         type: DataTypes.INTEGER,
@@ -17,10 +17,10 @@ Position.init({
         allowNull: false
     }
 },
-{
-    sequelize: db,
-    modelName: 'position',
-    timestamp: true
-})
+    {
+        sequelize: db,
+        modelName: 'position',
+        timestamp: true
+    })
 
 module.exports = Position

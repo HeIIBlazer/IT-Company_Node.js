@@ -46,8 +46,7 @@ Worker.init({
         reference: {
             model: Company,
             key: 'company_id'
-        },
-        field: 'CompanyID'
+        }
     },
     positionID: {
         type: DataTypes.INTEGER,
@@ -55,8 +54,7 @@ Worker.init({
         reference: {
             model: Position,
             key: 'position_id'
-        },
-        field: 'PositionID'
+        }
     }
 
 },
@@ -65,7 +63,7 @@ Worker.init({
         modelName: 'Worker',
         timestamp: true,
         indexes: [{
-            unique: true,
+            unique: false,
             fields: ["companyID", "positionID"]
         }]
     })
