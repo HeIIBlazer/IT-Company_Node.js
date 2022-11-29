@@ -1,7 +1,7 @@
-const db = require('../config/database')
-const { DataTypes, Model } = require('sequelize')
+const db = require('../config/database');
+const { DataTypes, Model } = require('sequelize');
 
-class Company extends Model {}
+class Company extends Model { }
 Company.init({
     company_id: {
         type: DataTypes.INTEGER,
@@ -29,10 +29,11 @@ Company.init({
         allowNull: true
     }
 },
-{
-    sequelize: db,
-    modelName: 'company',
-    timestamp: true
-})
+    {
+        sequelize: db,
+        modelName: 'company',
+        timestamp: true
+    }
+)
 
-module.exports = Company
+module.exports = Company;

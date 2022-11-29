@@ -1,48 +1,49 @@
-const db = require('../config/database')
-const { DataTypes, Model } = require('sequelize')
-const Worker = require('./worker')
-const Certificate = require('./certificate')
+const { DataTypes, Model } = require('sequelize');
+const db = require('../config/database');
+const Worker = require('./worker');
+const Certificate = require('./certificate');
 
-class workerCertificate extends Model { }
-workerCertificate.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true,
-    },
-    workerId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: Worker,
-            key: 'worker_id'
+class workersCertificates extends Model { }
+workersCertificates.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
         },
-    },
-    certificateId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: Certificate,
-            key: 'certificate_id'
+        workerId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Worker,
+                key: 'worker_id'
+            }
         },
+        certificateId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Certificate,
+                key: 'certificate_id'
+            }
+        },
+        dateOfReceiving: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        }
     },
-    dateOfReceipt: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-
-},
     {
         sequelize: db,
-        modelName: 'workcert',
-        timestamp: true,
+        modelName: 'workers_certificates',
+        timestamps: true,
         indexes: [
             {
-                unique: true,
-                fields: ["workerId", "certificateId"]
+                unique: false,
+                fields: ['workerId', 'certificateId']
             }
         ]
-    })
+    }
+);
 
-module.exports = workerCertificate
+module.exports = workersCertificates;
